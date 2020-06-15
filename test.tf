@@ -45,7 +45,7 @@ resource "aws_instance" "web" {
    connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = file("C:/Users/KIIT/Downloads/mykey1.pem")
+    private_key = file("/root/mykey1.pem")
     host     = aws_instance.web.public_ip
   }
 
@@ -101,7 +101,7 @@ resource "null_resource" "nullremote3"  {
   connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = file("C:/Users/KIIT/Downloads/mykey1.pem")
+    private_key = file("/root/mykey1.pem")
     host     = aws_instance.web.public_ip
   }
   
@@ -138,7 +138,7 @@ output "myanand1122" {
 resource "aws_s3_bucket_object" "object" {
   bucket = "${aws_s3_bucket.myanand1122.bucket}"
   key    = "anand.jpg"
-  source = "C:/Users/KIIT/Desktop/terraform/anand.jpg"
+  source = "/root/Desktop/terraform/anand.jpg"
   acl	 = "public-read"
 }
 
